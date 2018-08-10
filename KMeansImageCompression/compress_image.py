@@ -19,4 +19,4 @@ if __name__ == '__main__':
     filename = ['pikachu.png', 'tortoise.jpg']
     for i in filename:
         outPath = i.split('.')[0] + '_compress.png'
-        compress_image(i, outPath, kcluster=4)
+        compress_image(i, outPath, kcluster=3)
