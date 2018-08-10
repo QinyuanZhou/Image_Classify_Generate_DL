@@ -9,4 +9,4 @@ If you're keen to explore the beauty of image processing or computer vision, I t
 ## PCA for dimensionality reduction
 [Ther's simple code in python about PCA for dimensionality reduction with scikit-learn's PCA.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/PCA.py)  
 - We simulate 4 data clusters and process with PCA into 2 dimensions.  
-<div align=left>![dataset](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/data.png)</div>  
+![dataset](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/data.png)
