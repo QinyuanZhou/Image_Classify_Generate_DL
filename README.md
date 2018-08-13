@@ -1,6 +1,7 @@
 # ImageProjest
 There're some interesting projects about image. 
-If you're keen to explore the beauty of image processing or computer vision, I think you might like this.
+If you're keen to explore the beauty of image processing or computer vision, I think you might like this.  
+__** The following content may help you with read all.**__
 
 ## Image in Deep Learning --ImageDL
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)  
