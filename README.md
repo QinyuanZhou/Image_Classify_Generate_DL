@@ -1,4 +1,4 @@
-# ImageProjest
+# ImageProject
 There're some interesting projects about image. 
 If you're keen to explore the beauty of image processing or computer vision, I think you might like this.  
 __<i>The following content may help you with read all.</i>__
