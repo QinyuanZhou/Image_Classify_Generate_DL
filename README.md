@@ -4,7 +4,8 @@ If you're keen to explore the beauty of image processing or computer vision, I t
 
 ## Image in Deep Learning --ImageDL
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)
-The data of Pekoman is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
+The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset)
+ is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
 - MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
 
