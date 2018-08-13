@@ -12,4 +12,3 @@ If you're keen to explore the beauty of image processing or computer vision, I t
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/data.png" width="70%">
 
 ## Image in Deep Learning --ImageDL
-[There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)
