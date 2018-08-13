@@ -5,7 +5,7 @@ If you're keen to explore the beauty of image processing or computer vision, I t
 ## Image in Deep Learning --ImageDL
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)
 The data of Pekoman is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).
-
+![loss accuracy gif](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif)
 
 ## KMeansImageCompression
 [There's simple code in python about compressing image with scikit-learn's KMeans.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/compress_image.py)  
