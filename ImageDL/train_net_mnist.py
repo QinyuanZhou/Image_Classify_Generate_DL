@@ -3,7 +3,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import numpy as np
 import matplotlib.pyplot as plt
 
-class Class_Pekoman_Net(object):
+class Class_Mnist_Net(object):
     def __init__(self, output_classes = 5):
         self.output_classes = output_classes
         self.learning_rate = 0.0001
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     train_x, train_y, test_x, test_y= mnist_data.train.images, mnist_data.train.labels, mnist_data.test.images, mnist_data.test.labels
     train_x = np.reshape(train_x, [train_x.shape[0], 28, 28, 1])
 
-    net = Class_Pekoman_Net(10)
+    net = Class_Mnist_Net(10)
     y_hat, loss, accur, train = net.train_model(input_images, input_labels, image_channels=1)
     warn = net.build_net(input_images, image_channels=1)
     batch_size = net.batch_size
