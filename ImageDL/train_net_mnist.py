@@ -97,5 +97,5 @@ if __name__ == '__main__':
             if i % 5 == 0:
                 print("[INFO] step {}, accuracy {}, loss {}".format(i, accur1, loss1))
         saver.save(sess, "./model/model_mnist.ckpt")
-        plt.ioff() # close interactive mode
-        plt.show()
+    plt.ioff() # close interactive mode
+    plt.show()
