@@ -28,7 +28,7 @@ class Class_Mnist_Net(object):
                                        padding='SAME')
                 image_shape = input_images.shape.as_list()
                 flat_size = (image_shape[1]) * (image_shape[2]) * 4
-                print(image_shape)
+                # print(image_shape)
             with tf.name_scope('dense1'):
                 pool2_flat = tf.reshape(pool2, [-1, flat_size])
                 fc1 = tf.matmul(pool2_flat, tf.Variable(
@@ -51,6 +51,12 @@ class Class_Mnist_Net(object):
         with tf.name_scope('Train'):
             train = tf.train.AdamOptimizer(self.learning_rate).minimize(loss)
         return y_hat, loss, accuracy_conv, train
+
+    def classify_test(self, input_images, input_labels, image_channels):
+        y_hat = self.build_net(input_images, image_channels)
+        correct_prediction_conv = tf.equal(tf.argmax(y_hat, 1), tf.argmax(input_labels, 1))
+        accuracy_conv = tf.reduce_mean(tf.cast(correct_prediction_conv, dtype=tf.float32))
+        return y_hat, accuracy_conv
 
 def next_batch(train_data, train_labels, batch_size):
     nums = np.shape(train_data)[0]
