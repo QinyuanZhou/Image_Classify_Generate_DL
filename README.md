@@ -21,19 +21,13 @@ i replaced all the activate function(please forgive my ignorance...). Ha, stoppi
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_test.png" width="65%" height="65%" alt="classification" >
 </div>  
 
-<li>
 [preprocess_pokemon.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/preprocess_pokemon.py)
-</li>
 The file is usd to prepare the pokeman dataset, including image resizing , label to one-hot encoding and so on.
 
-<li>
 [build_network.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/build_network.py)
-</li>
 CNN structure has been accomplished in this file, consisting of building net, training net and classifying net functions.
 
-<li> 
 [classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)
-</li> 
 Some test data of pokeman have been employed to test the performance of the CNN model. Finally the highest score produced by 
 the model was marked in the picture and the corresponding true and predict label was given. 
 
