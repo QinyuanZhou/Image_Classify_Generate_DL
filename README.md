@@ -20,18 +20,22 @@ i replaced all the activate function(please forgive my ignorance...). Ha, stoppi
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_classify.png" width="65%" height="65%" alt="train" >
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_test.png" width="65%" height="65%" alt="classification" >
 </div>  
-<li>[preprocess_pokemon.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/preprocess_pokemon.py)  
+
+<li>
+[preprocess_pokemon.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/preprocess_pokemon.py)
+</li>
 The file is usd to prepare the pokeman dataset, including image resizing , label to one-hot encoding and so on.
-</li>
 
-<li>[build_network.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/build_network.py)  
+<li>
+[build_network.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/build_network.py)
+</li>
 CNN structure has been accomplished in this file, consisting of building net, training net and classifying net functions.
-</li>
 
-<li>[classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)  
+<li> 
+[classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)
+</li> 
 Some test data of pokeman have been employed to test the performance of the CNN model. Finally the highest score produced by 
 the model was marked in the picture and the corresponding true and predict label was given. 
-</li>
 
 ### MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
   I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
