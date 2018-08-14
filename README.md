@@ -28,7 +28,7 @@ The file is usd to prepare the pokeman dataset, including image resizing , label
 CNN structure has been accomplished in this file, consisting of building net, training net and classifying net functions.
 </li>
 
-<li>[classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)  
+<li>[classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)
 Some test data of pokeman have been employed to test the performance of the CNN model. Finally the highest score produced by 
 the model was marked in the picture and the corresponding true and predict label was given. 
 </li>
