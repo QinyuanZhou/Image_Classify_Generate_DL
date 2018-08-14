@@ -6,6 +6,9 @@ __<i>The following content may help you with read all.</i>__
 ## Image in Deep Learning --ImageDL
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)  
 The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset) is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
+
+- Pokeman classification.
+
 - MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="65%" height="65%"> 
