@@ -9,7 +9,9 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 
 - Pokeman classification.
 
-- MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).
+- MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
+I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
+show the classification loss and accuracy dynamically. 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="65%" height="65%"> 
 
