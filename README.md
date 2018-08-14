@@ -8,13 +8,15 @@ __<i>The following content may help you with read all.</i>__
 The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset) is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
 - MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
-<img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="70%" height="70%"> 
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="65%" height="65%"> 
 
 ## KMeansImageCompression
 [There's simple code in python about compressing image with scikit-learn's KMeans.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/compress_image.py)  
 - One example result listed in the following. The number of cluster centroids is 3.  
-![initial image](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu.png)
-![compressed image](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png)  
+<div align="left">
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu.png" alt="initial image" >
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png" alt="compressed image" >
+</div>
 
 ## PCA for dimensionality reduction
 [There's simple code in python about PCA for dimensionality reduction with scikit-learn's PCA.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/PCA.py)  
