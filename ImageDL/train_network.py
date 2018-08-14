@@ -15,10 +15,16 @@ def shuffle_inputdata(train_data, train_labels):
 
 def next_batch(train_data, train_labels, batch_size):
     nums = np.shape(train_data)[0]
-    index = np.arange(0, nums)
-    np.random.shuffle(index)
-    batch_index = index[0:batch_size]
-    return train_data[batch_index], train_labels[batch_index]
+    batch = int(np.ceil(nums / batch_size))
+    train_data_batch, train_labels_batch = [], []
+    for i in range(0, batch):
+        if i == batch-1:
+            train_data_batch.append(train_data[i * batch_size:])
+            train_labels_batch.append(train_labels[i * batch_size:])
+        else:
+            train_data_batch.append(train_data[i*batch_size : (i+1)*batch_size])
+            train_labels_batch.append(train_labels[i * batch_size: (i + 1) * batch_size])
+    return train_data_batch, train_labels_batch
 
 train_data, train_labels = shuffle_inputdata(np.array(preprocess_pokemon.train_data), np.array(preprocess_pokemon.train_labels))
 train_data = train_data / 255.0
@@ -50,16 +56,22 @@ if __name__ == '__main__':
         merged = tf.summary.merge_all()  # merge all chart together
         writer = tf.summary.FileWriter("logs/", sess.graph)  # save visualize graph
         sess.run(init_var)
-        for i in range(500):
-            print('[INFO] itera {} training, wait...'.format(i))
+        for epoch in range(200):
+            print('[INFO] epoch {} training, wait...'.format(epoch+1))
+            train_data, train_bin_labels = shuffle_inputdata(train_data, train_bin_labels)
             X, Y = next_batch(train_data, train_bin_labels, batch_size)
-            accur1, train1, loss1 = sess.run([accur, train, loss], feed_dict={input_images:X, input_labels:Y})
-            hist[1].append(accur1)
-            hist[0].append(loss1)
-            ax1.plot(hist[1])
-            ax2.plot(hist[0])
-            plt.pause(0.05)  # pause 0.05 seconds
-            print("[INFO] step {}, accuracy {}, loss {}".format(i, accur1, loss1))
-        saver.save(sess, "../model_poke/model_pokeman.ckpt")
+            all_batch = len(X)
+            for k, xbatch in enumerate(X):
+                if k == all_batch - 1:
+                    break
+                X_batch, Y_batch = xbatch, Y[k]
+                accur1, train1, loss1 = sess.run([accur, train, loss], feed_dict={input_images:X_batch, input_labels:Y_batch})
+                hist[1].append(accur1)
+                hist[0].append(loss1)
+                ax1.plot(hist[1])
+                ax2.plot(hist[0])
+                plt.pause(0.05)  # pause 0.05 seconds
+                print("[INFO] epoch/batch: {}/{}, accuracy {:.5f}, loss {:.5f}".format(epoch + 1, k + 1, accur1, loss1))
+        saver.save(sess, "./model_poke/model_pokeman.ckpt")
     plt.ioff()  # close interactive mode
     plt.show()

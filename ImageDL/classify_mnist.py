@@ -2,7 +2,6 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 import numpy as np
 from train_net_mnist import Class_Mnist_Net
-import cv2
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
@@ -18,7 +17,7 @@ if __name__ == '__main__':
 
     with tf.Session() as sess:
         saver = tf.train.Saver()
-        saver.restore(sess, './model/model_mnist.ckpt')
+        saver.restore(sess, './model_mnist/model_mnist.ckpt')
         y_hat1, accur1  = sess.run([y_hat, accur], feed_dict={x:test_x, y:test_y})
         y_predict = np.argmax(y_hat1, axis=1)
         y_real = np.argmax(test_y, axis=1)

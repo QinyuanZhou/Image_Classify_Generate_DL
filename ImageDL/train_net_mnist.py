@@ -102,6 +102,6 @@ if __name__ == '__main__':
             plt.pause(0.1) # pause 0.1 seconds
             if i % 5 == 0:
                 print("[INFO] step {}, accuracy {}, loss {}".format(i, accur1, loss1))
-        saver.save(sess, "./model/model_mnist.ckpt")
+        saver.save(sess, "./model_mnist/model_mnist.ckpt")
     plt.ioff() # close interactive mode
     plt.show()

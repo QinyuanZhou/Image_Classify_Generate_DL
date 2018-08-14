@@ -4,7 +4,7 @@ class Class_Pekoman_Net(object):
     def __init__(self, output_classes = 5):
         self.output_classes = output_classes
         self.learning_rate = 0.001
-        self.batch_size = 512
+        self.batch_size = 128
         self.drop = 0.5
 
     def build_net(self, input_images, image_channels=3):
