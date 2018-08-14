@@ -19,7 +19,7 @@ i replaced all the activate function(please forgive my ignorance...). Ha, stoppi
 <div align="left">
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_classify.png" width="65%" height="65%" alt="train" >
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_test.png" width="65%" height="65%" alt="classification" >
-</div>
+</div>  
 - [preprocess_pokemon.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/preprocess_pokemon.py)  
 The file is usd to prepare the pokeman dataset, including image resizing , label to one-hot encoding and so on.
 - [build_network.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/build_network.py)  
