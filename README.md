@@ -17,8 +17,8 @@ solution from a blog website, replacing the relu activate function with [tanh](h
 i replaced all the activate function(please forgive my ignorance...). Ha, stopping dissing me, the loss was going down.
 
 <div align="left">
-<img src="" alt="initial image" >
-<img src="" alt="compressed image" >
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_classify.png" alt="train" >
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_test.png" alt="classification" >
 </div>
 
 ### MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
