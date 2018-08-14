@@ -8,7 +8,7 @@ __<i>The following content may help you with read all.</i>__
 The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset) is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
 
 - Pokeman classification -- 5 kinds.  
-	Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
+  Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
 2 fully connected layers and 1 softmax layer. The loss function is cross-entropy. Activated by [relu](https://www.tensorflow.org/api_docs/python/tf/nn/relu)
  activation function, the
  net preduced a 'Nan' loss at the beginning(oh my goodness and so neverous i was). I search for why this happened in the internet and i got a 
@@ -17,7 +17,7 @@ solution from a blog website, replacing the relu activate function with [tanh](h
 i replaced all the activate function(please forgive my ignorance...). Ha, stopping dissing me, the loss was going down.
 
 - MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
-	I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
+  I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
 show the classification loss and accuracy dynamically. 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="65%" height="65%"> 
