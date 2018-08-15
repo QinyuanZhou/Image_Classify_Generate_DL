@@ -23,7 +23,7 @@ if __name__ == '__main__':
         saver = tf.train.Saver()
         saver.restore(sess, './model_poke/model_pokeman.ckpt')
         y_hat1, accur1  = sess.run([y_hat, accur], feed_dict={x:test_images, y:test_bin_labels})
-
+        print(accur1)
         fig = plt.figure()
         plt.axis('off')
         plt.title('Pokeman Classification\n', fontsize=18)
