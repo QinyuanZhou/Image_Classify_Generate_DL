@@ -6,7 +6,7 @@ import numpy as np
 load_oneClass_images(folder_path, resize_shape, resize_image=False): 
     load images from a specified folder which just contains images.
     parameter:
-        folder_path: an absolute or relative path, like D:\images\ish 
+        folder_path: an absolute path, like D:\images\ish 
         resize_shape: the image will be converted into the specified shape
         resize_image = False: whether resize the image
     return:
@@ -15,7 +15,7 @@ load_oneClass_images(folder_path, resize_shape, resize_image=False):
 load_multiClass_images(dir, resize_shape, resize_image=False):
     load images from a specified dir which just contains several folders, which folders including one kind of image.
     parameter:
-        dir: an absolute or relative path, like D:\images\ish 
+        dir: an absolute path, like D:\images\ish 
         resize_shape: the image will be converted into the specified shape
         resize_image = False: whether resize the image
     return:
@@ -23,7 +23,7 @@ load_multiClass_images(dir, resize_shape, resize_image=False):
         : the label array, the corresponding label of the image, also converted into np.array()s
 '''
 
-def load_oneClass_images(folder_path, resize_shape, resize_image=False):
+def load_oneClass_images(folder_path, resize_shape=[], resize_image=False):
     image_array = []
     image_files = os.listdir(folder_path)
     image_path_list = [os.path.join(folder_path, x) for x in image_files]
@@ -34,7 +34,7 @@ def load_oneClass_images(folder_path, resize_shape, resize_image=False):
         image_array.append(image)
     return np.array(image_array)
 
-def load_multiClass_images(dir, resize_shape, resize_image=False):
+def load_multiClass_images(dir, resize_shape=[], resize_image=False):
     image_array, label_array = np.array([]), []
     class_files = os.listdir(dir)
     class_path = [os.path.join(dir, x) for x in class_files]
