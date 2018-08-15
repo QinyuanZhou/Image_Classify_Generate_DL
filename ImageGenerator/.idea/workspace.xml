@@ -11,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="loading_images.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="loading_images.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/load_image_from_dir/loading_images.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
@@ -19,15 +19,6 @@
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prepare_data.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cnn_autoencoder/prepare_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -167,6 +158,13 @@
     <entry file="file://$PROJECT_DIR$/load_image_from_dir/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/cnn_autoencoder/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/load_image_from_dir/loading_images.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -174,13 +172,6 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cnn_autoencoder/prepare_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
