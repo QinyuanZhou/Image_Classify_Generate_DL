@@ -29,7 +29,9 @@ CNN structure has been accomplished in this file, consisting of building net, tr
 
 - [classify_pokeman.py](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/classify_pokeman.py)  
 Some test data of pokeman have been employed to test the performance of the CNN model. Finally the highest score produced by 
-the model was marked in the picture and the corresponding true and predict label was given. 
+the model was marked in the picture and the corresponding true and predict label was given.  
+
+**【Awesome】** 
 
 ### MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
   I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
