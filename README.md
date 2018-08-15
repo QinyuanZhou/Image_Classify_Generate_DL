@@ -16,7 +16,7 @@ solution from a blog website, replacing the relu activate function with [tanh](h
  activate funtion to the fully connected layer. So, 
 i replaced all the activate function(please forgive my ignorance...). Ha, stopping dissing me, the loss was going down.
 
-<div align="left">
+<div align="center">
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_test.png" width="75%" height="75%" alt="classification" >
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/pokeman_classify.png" width="75%" height="75%" alt="train" >
 </div>  
@@ -47,13 +47,16 @@ even oscillated. The code shown above makes sense.
 ### MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
   I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
 show the classification loss and accuracy dynamically. 
+
+<div align="center">
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/loss_accur.gif" width="65%" height="65%"> 
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="70%" height="70%"> 
+</div>
 
 ## KMeansImageCompression
 [There's simple code in python about compressing image with scikit-learn's KMeans.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/compress_image.py)  
 - One example result listed in the following. The number of cluster centroids is 3.  
-<div align="left">
+<div align="center">
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu.png" alt="initial image" >
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png" alt="compressed image" >
 </div>
@@ -61,4 +64,6 @@ show the classification loss and accuracy dynamically.
 ## PCA for dimensionality reduction
 [There's simple code in python about PCA for dimensionality reduction with scikit-learn's PCA.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/PCA.py)  
 - We simulate 4 data clusters and process with PCA into 2 dimensions. The center result is caculated by sklearn.decompsition.PCA, and the right one is caculated through numpy.linalg.svd, choosing 2 dimensions for reduction with svd decompsition. But there's difference between two results which also confuses me.     
+<div align="center">
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/data.png" width="65%" height="65%">  
+</div>
