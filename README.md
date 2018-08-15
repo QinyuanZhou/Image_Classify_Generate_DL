@@ -57,8 +57,8 @@ show the classification loss and accuracy dynamically.
 [There's simple code in python about compressing image with scikit-learn's KMeans.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/compress_image.py)  
 - One example result listed in the following. The number of cluster centroids is 3.  
 <div align="center">
-<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu.png" width="105%" height="105%" alt="initial image" >
-<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png" width="105%" height="105%" alt="compressed image" >
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu.png" width="75%" height="75%" alt="initial image" >
+<img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png" width="75%" height="75%" alt="compressed image" >
 </div>
 
 ## PCA for dimensionality reduction
