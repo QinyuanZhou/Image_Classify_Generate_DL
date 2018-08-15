@@ -14,3 +14,5 @@ ImageDL/model/model_mnist.ckpt.data-00000-of-00001
 ImageDL/model_poke/model_pokeman.ckpt.index
 ImageDL/model_poke/model_pokeman.ckpt.meta
 ImageDL/.idea/workspace.xml
+image_data_for_ImageGenerator/faces/0000fdee4208b8b7e12074c920bc6166-0.jpg
+image_data_for_ImageGenerator/faces/
