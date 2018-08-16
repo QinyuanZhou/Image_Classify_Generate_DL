@@ -12,6 +12,7 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
  includes [convolutional auto encoder](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator/cnn_autoencoder) and so on.
 - __<i>Must construct net model firstly before initialize your tensorflow's variables.</i>__
 - __<i>Don't make a mistake that initialize your net model over every batch, be careful.</i>__
+- __<i>Warning! Normalizing your image data, you like doing it or not anyway.</i>__
  
 ### 1.2. Pokeman classification -- 5 kinds.  
   Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
