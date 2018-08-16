@@ -3,7 +3,7 @@ There're some interesting projects about image.
 If you're keen to explore the beauty of image processing or computer vision, I think you might like this.  
 __<i>The following content may help you with read all.</i>__
 
-## ImageDL --Minst and Pokeman Classification
+## Image Application in Deep Learning
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)  
 The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset) is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
 
