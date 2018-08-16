@@ -4,6 +4,9 @@ import tensorflow as tf
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 def next_batch(train_data, batch_size):
     nums = np.shape(train_data)[0]
@@ -24,21 +27,22 @@ def next_batch(train_data, batch_size):
 if __name__ == '__main__':
 
     print('[INFO] loading images')
-    source_image = face_images[:512] # (51223, 96, 96, 3)
-    source_image = np.array((source_image)) # (51223, 96, 96, 3)
+    source_image = face_images[:1024] # (51223, 96, 96, 3)
+    source_image = np.array((source_image / 255)) # (512, 96, 96, 3)
     print(source_image.shape)
     print('[INFO] Complete loading images')
 
-    batch_size = 128
-    epoch = 200
-    COVN_AE = Conv_AE()
+    batch_size = 256
+    epoch = 20
+    # COVN_AE = Conv_AE()
+    COVN_AE = Conv_AE(learning_rate=0.00)
     COVN_AE.encoder()
     COVN_AE.middle_code()
     recon_image = COVN_AE.decoder(COVN_AE.m_code)
     loss = tf.reduce_mean(tf.square(COVN_AE.X - recon_image))
     train = tf.train.AdamOptimizer(COVN_AE.learning_rate).minimize(loss)
     model_saver = tf.train.Saver()
-    init_var = tf.global_variables_initializer()
+    # init_var = tf.global_variables_initializer()
 
     hist_loss = []
     fig1 = plt.figure('Loss')
@@ -46,13 +50,16 @@ if __name__ == '__main__':
     plt.ion()
 
     with tf.Session() as sess:
-        sess.run(init_var)
+        # sess.run(init_var) # first train
+        model_saver.restore(sess, '../model_r/COVN_AE.ckpt')
 
         for e in range(epoch):
             print('[INFO] epoch {} training, wait...'.format(e + 1))
             X_batches = next_batch(source_image, batch_size)
             all_batch = len(X_batches)
             for k, X in enumerate(X_batches):
+                # if k == all_batch-1:
+                #     break
                 # with tf.device('/gpu:0'):
                 feed_dict = {COVN_AE.X: X}
                 recon_image1, loss1, train1 = sess.run([recon_image, loss, train], feed_dict=feed_dict)
@@ -62,17 +69,22 @@ if __name__ == '__main__':
                 print("[INFO] epoch/all_batch/batch: {}/{}/{}, loss {:.5f}".format(e + 1, all_batch, k + 1, loss1))
 
                 for i in range(5):
+                    # print(i, X.shape)
                     ax = fig2.add_subplot(2, 5, i+1)
-                    init_image = cv2.cvtColor(np.reshape(X[i], [96, 96, 3]), cv2.COLOR_BGR2RGB)
+                    init_image = (X[i] * 255).astype(np.uint8)
+                    # print(init_image.shape)
+                    init_image = cv2.cvtColor(np.reshape(init_image, [96, 96, 3]), cv2.COLOR_BGR2RGB)
                     ax.imshow(init_image)
                     ax.axis('off')
                     ax = fig2.add_subplot(2, 5, i + 6)
-                    re_image = cv2.cvtColor(np.reshape(recon_image1[i], [96, 96, 3], cv2.COLOR_BGR2RGB))
+                    re_image = (recon_image1[i] * 255).astype(np.uint8)
+                    re_image = cv2.cvtColor(np.reshape(re_image, [96, 96, 3]), cv2.COLOR_BGR2RGB)
                     ax.imshow(re_image)
                     ax.axis('off')
 
                 plt.pause(0.1)
-                model_saver.save(sess, "../model/COVN_AE.ckpt")
-            model_saver.save(sess, "../model/COVN_AE.ckpt")
+            if e%5 == 0:
+                model_saver.save(sess, "../model_r/COVN_AE.ckpt")
+        model_saver.save(sess, "../model_r/COVN_AE.ckpt")
     plt.ioff()  # close interactive mode
     plt.show()

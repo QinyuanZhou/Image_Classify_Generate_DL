@@ -1,0 +1,2 @@
+model_checkpoint_path: "COVN_AE.ckpt"
+all_model_checkpoint_paths: "COVN_AE.ckpt"
