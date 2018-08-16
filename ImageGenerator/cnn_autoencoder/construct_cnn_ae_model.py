@@ -18,25 +18,25 @@ class Conv_AE(object):
     def encoder(self):
         with tf.name_scope('Encoder_Layer'):
             with tf.name_scope('Conv_Layer1'):
-                conv1 = tf.nn.conv2d(self.X, filter=tf.Variable(tf.truncated_normal([3, 3, self.img_depth, 64], stddev=0.1, dtype=tf.float32), name='weight1'), strides=self.c_stride, padding='SAME') # n x 96 x 96 x 63
-                relu1 = tf.nn.relu(conv1)
+                conv1 = tf.nn.conv2d(self.X, filter=tf.Variable(tf.truncated_normal([3, 3, self.img_depth, 64], stddev=0.1, dtype=tf.float32), name='E_weight1'), strides=self.c_stride, padding='SAME') # n x 96 x 96 x 63
+                relu1 = tf.nn.relu(conv1 + tf.Variable(tf.constant(0.1, shape=[64]), name='E_bias1'))
                 pool1 = tf.nn.max_pool(relu1, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 48 x 48 x 64
 
             with tf.name_scope('Conv_Layer2'):
-                conv2 = tf.nn.conv2d(pool1, filter=tf.Variable(tf.truncated_normal([3, 3, 64, 32], stddev=0.1, dtype=tf.float32), name='weight2'),strides=self.c_stride, padding='SAME') # n x 48 x 48 x 32
-                relu2 = tf.nn.relu(conv2)
+                conv2 = tf.nn.conv2d(pool1, filter=tf.Variable(tf.truncated_normal([3, 3, 64, 32], stddev=0.1, dtype=tf.float32), name='E_weight2'),strides=self.c_stride, padding='SAME') # n x 48 x 48 x 32
+                relu2 = tf.nn.relu(conv2 + tf.Variable(tf.constant(0.1, shape=[32]), name='E_bias2'))
                 pool2 = tf.nn.max_pool(relu2, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 24 x 24 x 32
 
             with tf.name_scope('Conv_Layer3'):
-                conv3 = tf.nn.conv2d(pool2, filter=tf.Variable(tf.truncated_normal([3, 3, 32, 16], stddev=0.1, dtype=tf.float32), name='weight3'), strides=self.c_stride, padding='SAME') # n x 24 x 24 x 16
-                relu3 = tf.nn.relu(conv3)
+                conv3 = tf.nn.conv2d(pool2, filter=tf.Variable(tf.truncated_normal([3, 3, 32, 16], stddev=0.1, dtype=tf.float32), name='E_weight3'), strides=self.c_stride, padding='SAME') # n x 24 x 24 x 16
+                relu3 = tf.nn.relu(conv3 + tf.Variable(tf.constant(0.1, shape=[16]), name='E_bias3'))
                 self.econ = tf.nn.max_pool(relu3, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 12 x 12 x 16
 
     def middle_code(self): # n x 12 x 12 x 16
         with tf.name_scope('Middle_Code'):
             with tf.name_scope('M_Layer1'):
                 m_conv1 = tf.nn.conv2d(self.econ, filter=tf.Variable(tf.truncated_normal([3, 3, 16, 16], stddev=0.1, dtype=tf.float32), name='M_weight1'), strides=self.c_stride, padding='SAME') # n x 12 x 12 x 16
-                m_relu1 = tf.nn.relu(m_conv1)
+                m_relu1 = tf.nn.relu(m_conv1 + tf.Variable(tf.constant(0.1, shape=[16]), name='M_bias1'))
                 self.m_code = tf.nn.max_pool(m_relu1, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 6 x 6 x 16
 
                 m_mean, m_var = tf.nn.moments(self.m_code, axes=[0, 1, 2], name='M_moments')
@@ -50,17 +50,17 @@ class Conv_AE(object):
             with tf.name_scope('Decoder_Layer1'):
                 d_conv1 = tf.image.resize_nearest_neighbor(rand_code, (12, 12)) # n x 12 x 12 x 16
                 d_conv1 = tf.nn.conv2d(d_conv1, filter=tf.Variable(tf.truncated_normal([3, 3, 16, 16], stddev=0.1, dtype=tf.float32), name='D_weight1'), strides=self.c_stride, padding='SAME') # n x 12 x 12 x 16
-                d_conv1 = tf.nn.relu(d_conv1)
+                d_conv1 = tf.nn.relu(d_conv1 + tf.Variable(tf.constant(0.1, shape=[16]), name='D_bias1'))
 
             with tf.name_scope('Decoder_Layer2'):
                 d_conv2 = tf.image.resize_nearest_neighbor(d_conv1, (24, 24)) # n x 24 x 24 x 16
                 d_conv2 = tf.nn.conv2d(d_conv2, filter=tf.Variable(tf.truncated_normal([3, 3, 16, 32], stddev=0.1, dtype=tf.float32), name='D_weight2'), strides=self.c_stride, padding='SAME') # n x 24 x 24 x 32
-                d_conv2 = tf.nn.relu(d_conv2)
+                d_conv2 = tf.nn.relu(d_conv2  + tf.Variable(tf.constant(0.1, shape=[32]), name='D_bias2'))
 
             with tf.name_scope('Decoder_Layer3'):
                 d_conv3 = tf.image.resize_nearest_neighbor(d_conv2, (48, 48)) # n x 48 x 48 x 32
                 d_conv3 = tf.nn.conv2d(d_conv3, filter=tf.Variable(tf.truncated_normal([3, 3, 32, 64], stddev=0.1, dtype=tf.float32), name='D_weight3'), strides=self.c_stride, padding='SAME') # n x 48 x 48 x 64
-                d_conv3 = tf.nn.relu(d_conv3)
+                d_conv3 = tf.nn.relu(d_conv3 + tf.Variable(tf.constant(0.1, shape=[64]), name='D_bias3'))
 
             with tf.name_scope('Decoder_Layer4'):
                 d_conv4 = tf.image.resize_nearest_neighbor(d_conv3, (96, 96)) # n x 96 x 96 x 32

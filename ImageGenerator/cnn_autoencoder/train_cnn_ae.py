@@ -24,13 +24,13 @@ def next_batch(train_data, batch_size):
 if __name__ == '__main__':
 
     print('[INFO] loading images')
-    source_image = face_images[:4096] # (51223, 96, 96, 3)
+    source_image = face_images[:512] # (51223, 96, 96, 3)
     source_image = np.array((source_image)) # (51223, 96, 96, 3)
     print(source_image.shape)
     print('[INFO] Complete loading images')
 
-    batch_size = 256
-    epoch = 5000
+    batch_size = 128
+    epoch = 50000
     COVN_AE = Conv_AE()
     COVN_AE.encoder()
     COVN_AE.middle_code()
