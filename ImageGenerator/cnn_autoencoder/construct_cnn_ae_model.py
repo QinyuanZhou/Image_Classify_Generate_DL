@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 class Conv_AE(object):
-    def __init__(self, input_shape=(None, 96, 96, 3), learning_rate=0.0001):
+    def __init__(self, input_shape=(None, 96, 96, 3), learning_rate=0.001):
         self.img_shape = input_shape
         self.img_width = input_shape[1]
         self.img_height = input_shape[2]
@@ -38,6 +38,12 @@ class Conv_AE(object):
                 relu3 = tf.nn.relu(conv3 + tf.Variable(tf.constant(0.1, shape=[16]), name='bias3'))
                 self.econ = tf.nn.max_pool(relu3, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 12 x 12 x 16
 
+                p_mean, p_var = tf.nn.moments(self.econ, axes=[0, 1, 2], name='E_moments1')
+                scale = tf.Variable(tf.ones([1]))
+                shift = tf.Variable(tf.zeros([1]))
+                epsilon = 0.000001
+                self.econ = tf.nn.batch_normalization(self.econ, p_mean, p_var, scale, shift, epsilon, name='E_batch_normalization')
+
     def middle_code(self): # n x 12 x 12 x 16
         with tf.name_scope('Middle_Code'):
             with tf.name_scope('M_Layer1'):
@@ -46,6 +52,12 @@ class Conv_AE(object):
                                      strides=self.c_stride, padding='SAME') # n x 12 x 12 x 16
                 m_relu1 = tf.nn.relu(m_conv1 + tf.Variable(tf.constant(0.1, shape=[16]), name='M_bias1'))
                 self.m_code = tf.nn.max_pool(m_relu1, ksize=self.p_size, strides=self.p_stride, padding='SAME') # n x 6 x 6 x 16
+
+                m_mean, m_var = tf.nn.moments(self.m_code, axes=[0, 1, 2], name='M_moments')
+                scale = tf.Variable(tf.ones([1]))
+                shift = tf.Variable(tf.zeros([1]))
+                epsilon = 0.000001
+                self.m_code = tf.nn.batch_normalization(self.m_code, m_mean, m_var, scale, shift, epsilon, name='M_batch_normalization')
 
     def decoder(self, rand_code): # n x 6 x 6 x 16
         with tf.name_scope('Decoder_Layer'):
@@ -84,10 +96,12 @@ class Conv_AE(object):
         self.loss = tf.reduce_mean(tf.square(self.X - recon_image))
         train = tf.train.AdamOptimizer(self.learning_rate).minimize(self.loss)
 
+        model_saver = tf.train.Saver()
         init_var = tf.global_variables_initializer()
         sess.run(init_var)
+        r, l, t = sess.run([recon_image, self.loss, train], feed_dict=feed_dict)
 
-        return sess.run([recon_image, self.loss, train], feed_dict=feed_dict)
+        return r, l, t, model_saver
 
     def random_generate_image(self, sess, rand_code):
         feed_dict = {self.rand_code: rand_code}
