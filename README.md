@@ -3,17 +3,17 @@ There're some interesting projects about image.
 If you're keen to explore the beauty of image processing or computer vision, I think you might like this.  
 __<i>The following content may help you with read all.</i>__
 
-## Image Application in Deep Learning
+## 1. Image Application in Deep Learning
 [There's some python codes in the field of image, including image classification and other interesting aspects.](https://github.com/YibaYan/ImageProjects/tree/master/ImageDL)  
 The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokeman_dataset) is collected by [Adrian Rosebrock(such a genius guy in image)](https://www.pyimagesearch.com/).  
 
-### Image Generation  
+### 1.1. Image Generation  
 [There're some python codes of image generation.](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator) The genetors
  includes [convolutional auto encoder](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator/cnn_autoencoder) and so on.
 - __<i>Must construct net model firstly before initialize your tensorflow's variables.</i>__
 - __<i>Don't make a mistake that initialize your net model over every batch, be careful.</i>__
  
-### Pokeman classification -- 5 kinds.  
+### 1.2. Pokeman classification -- 5 kinds.  
   Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
 2 fully connected layers and 1 softmax layer. The loss function is cross-entropy. Activated by [relu](https://www.tensorflow.org/api_docs/python/tf/nn/relu)
  activation function, the
@@ -50,7 +50,7 @@ We can handle this issue by plusing a very small value, like 0.000001, with the 
 Then log(0) would be replaced with log(0.000001). However, the loss curve is less smooth than the model trained with tanh activate function, 
 even oscillated. The code shown above makes sense.  
 
-### MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
+### 1.3. MNIST Loss and Accuracy, train by simple [CNN](https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/train_net_mnist.py).  
   I employ [matplotlib.pyplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html) with interactive ploting mode to
 show the classification loss and accuracy dynamically. 
 
@@ -59,7 +59,7 @@ show the classification loss and accuracy dynamically.
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/ImageDL/mnist_classify.png" width="75%" height="75%"> 
 </div>
 
-## KMeansImageCompression
+## 2. KMeansImageCompression
 [There's simple code in python about compressing image with scikit-learn's KMeans.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/compress_image.py)  
 - One example result listed in the following. The number of cluster centroids is 3.  
 <div align="center">
@@ -67,7 +67,7 @@ show the classification loss and accuracy dynamically.
 <img src="https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/pikachu_compress.png" alt="compressed image" >
 </div>
 
-## PCA for dimensionality reduction
+## 3. PCA for dimensionality reduction
 [There's simple code in python about PCA for dimensionality reduction with scikit-learn's PCA.](https://github.com/YibaYan/ImageProjects/blob/master/KMeansImageCompression/PCA.py)  
 - We simulate 4 data clusters and process with PCA into 2 dimensions. The center result is caculated by sklearn.decompsition.PCA, and the right one is caculated through numpy.linalg.svd, choosing 2 dimensions for reduction with svd decompsition. But there's difference between two results which also confuses me.     
 <div align="center">
