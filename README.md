@@ -10,7 +10,9 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 ### Image Generation  
 [There're some python codes of image generation.](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator) The genetors
  includes [convolutional auto encoder](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator/cnn_autoencoder) and so on.
-
+- __<i>Must construct net model firstly before initialize your tensorflow's variables.</i>__
+- __<i>Don't make a mistake that initialize your net model over every batch, be careful.</i>__
+ 
 ### Pokeman classification -- 5 kinds.  
   Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
 2 fully connected layers and 1 softmax layer. The loss function is cross-entropy. Activated by [relu](https://www.tensorflow.org/api_docs/python/tf/nn/relu)
