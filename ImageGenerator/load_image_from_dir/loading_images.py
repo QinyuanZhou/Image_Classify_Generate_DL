@@ -27,7 +27,8 @@ def load_oneClass_images(folder_path, resize_shape=[], resize_image=False):
     image_array = []
     image_files = os.listdir(folder_path)
     image_path_list = [os.path.join(folder_path, x) for x in image_files]
-    for image_path in image_path_list:
+    for i, image_path in enumerate(image_path_list):
+        print(i ,image_path)
         image = cv2.imread(image_path)
         if resize_image:
             image = cv2.resize(image, resize_shape)

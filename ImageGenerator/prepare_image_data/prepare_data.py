@@ -2,7 +2,7 @@ import load_image_from_dir.loading_images as ld_image
 import pickle
 import os
 
-file = './face_image.pickle'
+file = 'D:\\Documents\\GitHub\\ImageProjects\\ImageGenerator\\prepare_image_data\\face_image.pickle'
 
 if not os.path.exists(file):
     path = 'D:\\Documents\\GitHub\\ImageProjects\\image_data_for_ImageGenerator\\faces'
@@ -15,5 +15,7 @@ else:
 
 if __name__ == '__main__':
     import cv2
-    cv2.imshow(face_images[1])
+    print(face_images.shape)
+    for i in range(4):
+        cv2.imshow(str(i), face_images[i])
     cv2.waitKey(0)
