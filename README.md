@@ -28,37 +28,37 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 
 <p>
 <code>
-import tensorflow as tf
-import numpy as np
+	import tensorflow as tf  
+	import numpy as np  
 
-data = np.arange(1, 100 + 1)
-data_input = tf.constant(data)
+	data = np.arange(1, 100 + 1)  
+	data_input = tf.constant(data)  
 
-batch_shuffle = tf.train.shuffle_batch([data_input], enqueue_many=True, batch_size=10, capacity=100, min_after_dequeue=10, allow_smaller_final_batch=True)
-batch_no_shuffle = tf.train.batch([data_input], enqueue_many=True, batch_size=10, capacity=100, allow_smaller_final_batch=True)
+	batch_shuffle = tf.train.shuffle_batch([data_input], enqueue_many=True, batch_size=10, capacity=100, min_after_dequeue=10, allow_smaller_final_batch=True)  
+	batch_no_shuffle = tf.train.batch([data_input], enqueue_many=True, batch_size=10, capacity=100, allow_smaller_final_batch=True)  
 
-with tf.Session() as sess:
-    coord = tf.train.Coordinator()
-    threads = tf.train.start_queue_runners(coord=coord)
-    for i in range(10):
-        print(i, sess.run([batch_shuffle, batch_no_shuffle]))
-    coord.request_stop()
-    coord.join(threads) 
+	with tf.Session() as sess:  
+		coord = tf.train.Coordinator()  
+		threads = tf.train.start_queue_runners(coord=coord)  
+		for i in range(10):  
+			print(i, sess.run([batch_shuffle, batch_no_shuffle]))  
+		coord.request_stop()  
+		coord.join(threads)   
 </p>
 </code>
 Which yields:
 <p>
 <code>
-0 [array([23, 48, 15, 46, 78, 89, 18, 37, 88,  4]), array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])]
-1 [array([80, 10,  5, 76, 50, 53,  1, 72, 67, 14]), array([11, 12, 13, 14, 15, 16, 17, 18, 19, 20])]
-2 [array([11, 85, 56, 21, 86, 12,  9,  7, 24,  1]), array([21, 22, 23, 24, 25, 26, 27, 28, 29, 30])]
-3 [array([ 8, 79, 90, 81, 71,  2, 20, 63, 73, 26]), array([31, 32, 33, 34, 35, 36, 37, 38, 39, 40])]
-4 [array([84, 82, 33,  6, 39,  6, 25, 19, 19, 34]), array([41, 42, 43, 44, 45, 46, 47, 48, 49, 50])]
-5 [array([27, 41, 21, 37, 60, 16, 12, 16, 24, 57]), array([51, 52, 53, 54, 55, 56, 57, 58, 59, 60])]
-6 [array([69, 40, 52, 55, 29, 15, 45,  4,  7, 42]), array([61, 62, 63, 64, 65, 66, 67, 68, 69, 70])]
-7 [array([61, 30, 53, 95, 22, 33, 10, 34, 41, 13]), array([71, 72, 73, 74, 75, 76, 77, 78, 79, 80])]
-8 [array([45, 52, 57, 35, 70, 51,  8, 94, 68, 47]), array([81, 82, 83, 84, 85, 86, 87, 88, 89, 90])]
-9 [array([35, 28, 83, 65, 80, 84, 71, 72, 26, 77]), array([91, 92, 93, 94, 95, 96, 97, 98, 99, 100])]
+	0 [array([23, 48, 15, 46, 78, 89, 18, 37, 88,  4]), array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])]  
+	1 [array([80, 10,  5, 76, 50, 53,  1, 72, 67, 14]), array([11, 12, 13, 14, 15, 16, 17, 18, 19, 20])]  
+	2 [array([11, 85, 56, 21, 86, 12,  9,  7, 24,  1]), array([21, 22, 23, 24, 25, 26, 27, 28, 29, 30])]  
+	3 [array([ 8, 79, 90, 81, 71,  2, 20, 63, 73, 26]), array([31, 32, 33, 34, 35, 36, 37, 38, 39, 40])]  
+	4 [array([84, 82, 33,  6, 39,  6, 25, 19, 19, 34]), array([41, 42, 43, 44, 45, 46, 47, 48, 49, 50])]  
+	5 [array([27, 41, 21, 37, 60, 16, 12, 16, 24, 57]), array([51, 52, 53, 54, 55, 56, 57, 58, 59, 60])]  
+	6 [array([69, 40, 52, 55, 29, 15, 45,  4,  7, 42]), array([61, 62, 63, 64, 65, 66, 67, 68, 69, 70])]  
+	7 [array([61, 30, 53, 95, 22, 33, 10, 34, 41, 13]), array([71, 72, 73, 74, 75, 76, 77, 78, 79, 80])]  
+	8 [array([45, 52, 57, 35, 70, 51,  8, 94, 68, 47]), array([81, 82, 83, 84, 85, 86, 87, 88, 89, 90])]  
+	9 [array([35, 28, 83, 65, 80, 84, 71, 72, 26, 77]), array([91, 92, 93, 94, 95, 96, 97, 98, 99, 100])]  
 </p>
 </code>
  
