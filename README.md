@@ -51,7 +51,7 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 				print('epoch/batch/x_batch: {}/{}/  {}'.format(epoch+1, batch+1, x_batch)) 
 
 Which yields:  
-	If Shuffled:
+	If Shuffled:  
 	epoch/batch_x_batch: 1/1  [ 3  2 11  1 14 15  8  7 18 10]
 	epoch/batch_x_batch: 1/2  [16  4 20  6 22 12  9 21 26 24]
 	epoch/batch_x_batch: 1/3  [17 19 27 25 28 31 30 34 29 32]
@@ -72,7 +72,7 @@ Which yields:
 	epoch/batch_x_batch: 2/8  [74 66 78 72 77 85 59 80 86 89]
 	epoch/batch_x_batch: 2/9  [81 82 87 91 73 83 84 88 96 94]
 	epoch/batch_x_batch: 2/10  [ 90  95  99  98  79  92  97 100  76  93]  
-	If Not Shuffled:
+	If Not Shuffled:  
 	epoch/batch_x_batch: 1/1  [ 1  2  3  4  5  6  7  8  9 10]
 	epoch/batch_x_batch: 1/2  [11 12 13 14 15 16 17 18 19 20]
 	epoch/batch_x_batch: 1/3  [21 22 23 24 25 26 27 28 29 30]
