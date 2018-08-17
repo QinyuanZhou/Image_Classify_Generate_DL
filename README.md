@@ -16,9 +16,9 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 - __<i>Remember! Specify the GPU device to train/retrain the model, otherwise may stucked into GPU Memory Error.</i>__
 
 <div align="center">
-Good Reconstruction  
+<center> Good Reconstruction </center> 
 <img src="https://github.com/YibaYan/Image_Classify_Generate_DL/blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_good.png" width="75%" height="75%" >
-Bad Reconstruction  
+<center> Bad Reconstruction </center> 
 <img src="https://github.com/YibaYan/Image_Classify_Generate_DL/blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_bad.png" width="75%" height="75%">
 </div>  
  
