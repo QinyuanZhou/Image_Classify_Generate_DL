@@ -17,7 +17,7 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 
 <p align="center"><strong>Good Reconstruction  </strong></p>
 <div align="center">
-![good](./ImageGenerator/cnn_autoencoder/Image_Reconstruct_good.png"){:height="75%" width="75%"}
+<img src="./blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_good.png" width="75%" height="75%" >
 </div>
 
 <p align="center"><strong>Bad Reconstruction  </strong></p>
