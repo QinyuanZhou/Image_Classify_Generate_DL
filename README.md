@@ -14,6 +14,13 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 - __<i>Don't make a mistake that initialize your net model over every batch, be careful.</i>__
 - __<i>Warning! Normalizing your image data, you like doing it or not anyway.</i>__
 - __<i>Remember! Specify the GPU device to train/retrain the model, otherwise may stucked into GPU Memory Error.</i>__
+
+<div align="center">
+Good Reconstruction
+<img src="https://github.com/YibaYan/Image_Classify_Generate_DL/blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_good.png" width="75%" height="75%" >
+Bad Reconstruction
+<img src="https://github.com/YibaYan/Image_Classify_Generate_DL/blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_bad.png" width="75%" height="75%">
+</div>  
  
 ### 1.2. Pokeman classification -- 5 kinds.  
   Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
