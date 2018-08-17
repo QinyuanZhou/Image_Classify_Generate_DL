@@ -51,6 +51,7 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 				print('epoch/batch_x_batch: {}/{}  {}'.format(epoch+1, batch+1, x_batch))
 
 Which yields:  
+<pre><code>
 	If Shuffled:  
 	epoch/batch_x_batch: 1/1  [ 9  6 11  2 10  5 15 17  3  8]
 	epoch/batch_x_batch: 1/2  [20  1 21  7 16  4 24 22 18 27]
@@ -88,6 +89,7 @@ Which yields:
 	epoch/batch_x_batch: 2/7  [61 62 63 64 65 66 67 68 69 70]
 	epoch/batch_x_batch: 2/8  [71 72 73 74 75 76 77 78 79 80]
 	epoch/batch_x_batch: 2/9  [81 82 83 84 85 86 87 88 89 90] 
+</code></pre>
  
 ### 1.2. Pokeman classification -- 5 kinds.  
   Something so strange happened here when i was trainning the cnn for pokeman classification. My cnn consists of three conv layers, 
