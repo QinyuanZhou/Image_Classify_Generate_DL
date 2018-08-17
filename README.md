@@ -26,14 +26,14 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 <img src="https://github.com/YibaYan/Image_Classify_Generate_DL/blob/master/ImageGenerator/cnn_autoencoder/Image_Reconstruct_bad.png" width="75%" height="75%">
 </div> 
 
+<p>
+<code>
 import tensorflow as tf
 import numpy as np
 
 data = np.arange(1, 100 + 1)
 data_input = tf.constant(data)
 
-<p>
-<code>
 batch_shuffle = tf.train.shuffle_batch([data_input], enqueue_many=True, batch_size=10, capacity=100, min_after_dequeue=10, allow_smaller_final_batch=True)
 batch_no_shuffle = tf.train.batch([data_input], enqueue_many=True, batch_size=10, capacity=100, allow_smaller_final_batch=True)
 
