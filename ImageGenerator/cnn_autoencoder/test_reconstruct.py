@@ -5,13 +5,15 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import operator
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 if __name__ == '__main__':
 
     print('[INFO] loading images')
-    source_image = face_images[-256:] # collect last 256 images for testing
+    k = 5000
+    source_image = face_images[-k:] # collect last 256 images for testing
     source_image = np.array((source_image / 255)) # (512, 96, 96, 3)
     print(source_image.shape)
     print('[INFO] Complete loading images')
@@ -31,22 +33,32 @@ if __name__ == '__main__':
 
     with tf.Session() as sess:
         model_saver.restore(sess, '../model_r/COVN_AE.ckpt')
-        feed_dict = {COVN_AE.X: source_image}
-        for i in range(256):
+        for i in range(k):
+            feed_dict = {COVN_AE.X: np.reshape(source_image[i], [-1, 96, 96, 3])}
             recon_image1, loss1 = sess.run([recon_image, loss], feed_dict=feed_dict)
             hist_loss.append(loss1)
             hist_re_image.append(recon_image1)
+        print(hist_re_image[1].shape)
+
+        sort_index = list([index for index, value in sorted(enumerate(hist_loss), key=operator.itemgetter(1), reverse = True)])
+        sort_re_image = [hist_re_image[s_index] for s_index in sort_index]
+        sort_source_image = [source_image[s_index] for s_index in sort_index]
+
         plt.figure('Loss')
         plt.plot(hist_loss)
-        for i in range(5):
-            ax = fig2.add_subplot(2, 5, i+1)
-            init_image = (source_image[i] * 255).astype(np.uint8)
+        index_s = 0
+        a = [0, 1] * 5 + [1, 2] * 5
+        for i_plot in range(index_s, 10+index_s):
+            k_ax = i_plot % 10
 
+            ax = fig2.add_subplot(4, 5, k_ax+1+5*a[2*k_ax])
+            init_image = (sort_source_image[i_plot] * 255).astype(np.uint8)
             init_image = cv2.cvtColor(np.reshape(init_image, [96, 96, 3]), cv2.COLOR_BGR2RGB)
             ax.imshow(init_image)
             ax.axis('off')
-            ax = fig2.add_subplot(2, 5, i + 6)
-            re_image = (hist_re_image[i] * 255).astype(np.uint8)
+
+            ax = fig2.add_subplot(4, 5, k_ax+1+5*a[2*k_ax+1])
+            re_image = (sort_re_image[i_plot] * 255).astype(np.uint8)
             re_image = cv2.cvtColor(np.reshape(re_image, [96, 96, 3]), cv2.COLOR_BGR2RGB)
             ax.imshow(re_image)
             ax.axis('off')
