@@ -43,7 +43,7 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 		coord.request_stop()  
 		coord.join(threads)   
 
-Which yields:
+Which yields:  
 
 	0 [array([23, 48, 15, 46, 78, 89, 18, 37, 88,  4]), array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])]  
 	1 [array([80, 10,  5, 76, 50, 53,  1, 72, 67, 14]), array([11, 12, 13, 14, 15, 16, 17, 18, 19, 20])]  
