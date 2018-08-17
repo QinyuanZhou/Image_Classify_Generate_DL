@@ -10,7 +10,8 @@ The [Pekoman_dataset](https://github.com/YibaYan/ImageProjects/tree/master/Pokem
 ### 1.1. Image Generation  
 [There're some python codes of image generation.](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator) The genetors
  includes [convolutional auto encoder](https://github.com/YibaYan/ImageProjects/tree/master/ImageGenerator/cnn_autoencoder) and so on.
-- __<i>Must construct net model firstly before initialize your tensorflow's variables.</i>__
+#### 1.1.1 Convolutional Auto Encoder
+ - __<i>Must construct net model firstly before initialize your tensorflow's variables.</i>__
 - __<i>Don't make a mistake that initialize your net model over every batch, be careful.</i>__
 - __<i>Warning! Normalizing your image data, you like doing it or not anyway.</i>__
 - __<i>Remember! Specify the GPU device to train/retrain the model, otherwise may stucked into GPU Memory Error.</i>__
